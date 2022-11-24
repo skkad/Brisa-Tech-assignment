@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Document</title> -->
+</head>
+<body>
+    <%- include('../Header/header.ejs') %> 
+    <div class="card">
+        <div class="card-header">
+        Product Master
+        </div>
+        <div class="card-body">
+        <section id="content mt-5">
+            <div class="content-blog  bg-white">
+                <div class="container">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr> 
+                                <th>Product Id</th>
+                                <th>Product Name</th>
+                                <th>Category Id</th>
+                                <th>Category Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <% products_array.map((prod)=>{ %>
+                            <tbody>
+                                <tr>                               
+                                    <td><%-prod._id%></td>
+                                    <td><%-prod.productName%></td> 
+                                    <td><%-prod.category._id%></td> 
+                                    <td><%-prod.category.categoryName%></td> 
+                                    <td><a href='http://localhost:4000/editProducts/<%-prod._id%>'>Edit</a> 
+                                    | <a href='http://localhost:4000/api/delete-single-product/<%-prod._id%>'>Delete</a></td>
+                                </tr>
+                            </tbody>
+                        <% }) %> 
+
+                    </table>
+                    
+                </div>
+                <nav aria-label="...">
+                    <ul class="pagination">
+                      <li class="page-item ">
+                        <a class="page-link" href="http://localhost:4000/viewProducts" tabindex="-1" aria-disabled="true">Previous</a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="http://localhost:4000/viewProducts">1</a></li>
+                      <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="http://localhost:4000/viewProducts?page=2">2</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="http://localhost:4000/viewProducts?page=2">Next</a>
+                      </li>
+                    </ul>
+                </nav>
+            </div>
+        
+        </section>
+        </div>
+        </div>
+        
+        
+    </div>
+</body>
+</html>

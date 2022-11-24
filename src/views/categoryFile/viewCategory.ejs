@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Document</title> -->
+</head>
+<body>
+    <%- include('../Header/header.ejs') %> 
+    <div class="card">
+        <div class="card-header">
+            Category Master
+        </div>
+        <div class="card-body">
+            <div class="container pt-5">
+                <table class='table table-bordered bg-white'>
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <!-- use db to display  -->
+                    <% 
+                        category_array.map((cat)=>{
+                    %>  
+                            <tbody>
+                                <tr>
+                                    <td><%-cat.categoryName%></td>
+                                    <td><a href="http://localhost:4000/editCategories/<%-cat._id%>">Edit</a> | 
+                                        <a href="http://localhost:4000/api/delete-single-category/<%-cat._id%>">Delete</a></td>
+                                </tr>
+                                
+                            </tbody>
+                    <%
+                        })
+                
+                     %>
+                    
+                </table>
+        
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

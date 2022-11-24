@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Document</title> -->
+</head>
+<body>
+    <%- include('../Header/header.ejs') %> 
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Add Products
+            </div>
+            <div class="card-body">
+                <section id="content ">
+                    <div class="content-blog bg-white py-3">
+                        <div class="container"> 
+                        
+                    <!-- <div class="alert alert-success"></div> -->
+                            
+                            <form method="post"  action='http://localhost:4000/api/post-product'>
+                                <div class="form-group">
+                                    <label for="productname">Product Name</label>
+                                    <input type="text" class="form-control" name="productname" id="productname" placeholder="Product Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="category_id">Product Category</label>
+                                    <select class="form-control" id="category_id" name="category_id">
+                                
+                                        <% category_array.map((cat)=>{ %>
+                                            <option value="<%-cat._id%>"><%-cat.categoryName%></option>
+                                        <% }) %> 
+                                    </select>
+                                    <!-- <input type="text" class="form-control" name="catName" id="catName" placeholder="Category Name"> -->
+                                </div>
+                    
+                                
+                                
+                    
+                                
+                                
+                                <button type="submit"  name ='submit' class="btn btn-primary">Submit</button>
+                            </form>
+                            
+                        </div>
+                    </div>
+                
+                </section>
+            </div>
+        </div>
+        
+        
+    </div>
+        
+</body>
+</html>
